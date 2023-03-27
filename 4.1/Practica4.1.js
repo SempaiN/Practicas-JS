@@ -36,7 +36,12 @@ switch (elec) {
         break;
 
     case "3":
-
+        var suma = 0;
+        for (let index = 0; index <= 100; index++) {
+            suma+= index;
+        }
+        document.write(suma);
+        
         break;
     default:
 
