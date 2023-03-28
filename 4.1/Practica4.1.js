@@ -1,7 +1,8 @@
 var elec = prompt("Dame la opción")
 switch (elec) {
     case "1":
-        var n1, n2, n3;
+        function mayor() {
+            var n1, n2, n3;
         n1 = prompt("Dime el número 1")
         n2 = prompt("Dime el número 2")
         n3 = prompt("Dime el número 3")
@@ -14,6 +15,7 @@ switch (elec) {
         }
         else if (n3 > n1 && n3 > n2) {
             document.write("El número mayor es " + n3)
+        }
         }
         break;
 
@@ -62,11 +64,12 @@ switch (elec) {
         document.write("El numero más grande es el " + nums[2] + " El número más pequeño es el " + nums[0])
         break;
     case "6":
+        
         var nums = [];
         var num;
         var cont = 0;
         do {
-            num = prompt("Dame un número");
+            num = parseInt(prompt("Dame un número"));
             if (num <= 0 ) {
                 break;
             }
