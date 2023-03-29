@@ -18,8 +18,6 @@ switch (elec) {
         break;
 
     case "2":
-        var mayor;
-        var par;
         n1 = prompt("Dame el número y te daré datos sobre el");
         if (n1 >= 0) {
             document.write("El número es positivo")
@@ -54,29 +52,44 @@ switch (elec) {
         break;
 
     case "5":
-        n1 = prompt("Dime el número 1")
-        n2 = prompt("Dime el número 2")
-        n3 = prompt("Dime el número 3")
+        n1 = parseInt(prompt("Dime el número 1"))
+        n2 = parseInt(prompt("Dime el número 2"))
+        n3 = parseInt(prompt("Dime el número 3"))
         var nums = [n1,n2,n3];
-        nums.sort;
-        document.write("El numero más grande es el " + nums[2] + " El número más pequeño es el " + nums[0])
+        var max = 0;
+        var min = 999999999999999;
+        for (let index = 0; index < nums.length; index++) {
+            if (nums[index] > max) {
+                max = nums[index];
+            }
+            if (nums[index]< min) {
+                min= nums[index];
+            }
+        }
+        document.write("El numero más grande es el " + max+ " El número más pequeño es el " + min)
         break;
     case "6":
         var nums = [];
         var num;
         var cont = 0;
+        var max = 0;
+        var min = 999999999999999;
         do {
-            num = prompt("Dame un número");
-            if (num <= 0 ) {
-                break;
-            }
+            num = parseInt(prompt("Dame un número"))
             nums[cont] = num;
             cont++;
-            
         } while (num > 0);
-        nums.sort;
-        var largo = nums.length;
-        document.write("El número mayor es " + nums[largo-1] + " El número menor es el " + nums[0])
+        for (let index = 0; index < nums.length; index++) {
+            if (nums[index] > max) {
+                max = nums[index];
+            }
+            if (nums[index]< min) {
+                min= nums[index];
+            }
+        }
+        
+        document.write("El número mayor es " + max)
+        document.write("El número menor es " + min)
         break;
     case "7":
         var cont = 0;
