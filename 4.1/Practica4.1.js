@@ -64,7 +64,6 @@ switch (elec) {
         document.write("El numero más grande es el " + nums[2] + " El número más pequeño es el " + nums[0])
         break;
     case "6":
-        
         var nums = [];
         var num;
         var cont = 0;
