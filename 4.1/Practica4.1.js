@@ -1,7 +1,7 @@
 var elec = prompt("Dame la opción")
 switch (elec) {
     case "1":
-        function mayor() {
+      
             var n1, n2, n3;
         n1 = prompt("Dime el número 1")
         n2 = prompt("Dime el número 2")
@@ -16,7 +16,7 @@ switch (elec) {
         else if (n3 > n1 && n3 > n2) {
             document.write("El número mayor es " + n3)
         }
-        }
+        
         break;
 
     case "2":
@@ -117,9 +117,47 @@ switch (elec) {
         var distancia = parseInt(prompt("Dame la distancia"))
         document.write("Haces  " + + distancia*ms + " metros")
         break;
-        default:
+
+    case "9":
+        var dineroInicial,dineroFinal,original,conversion;
+        original = parseInt(prompt("Dime la divisa original 1.- Euro 2.- Dolar 3.- Libra"))
+        conversion = parseInt(prompt("Ahora dime a que lo quieres convertir 1.- Euro 2.-Dolar 3.- Libra"))
+        dineroInicial = parseFloat(prompt("Dame el dinero que quieres converir"))
+        if (original == 1 && conversion == 2) {
+            dineroFinal = dineroInicial * 1.11;
+            document.write(dineroInicial + "€ = " + dineroFinal+ "$" )
+        }
+        if (original == 1 && conversion == 3) {
+            dineroFinal = dineroInicial * 0.84
+            document.write(dineroInicial + "€ = " + dineroFinal + "£")
+        }
+        if (original == 2 && conversion == 1) {
+            dineroFinal = dineroInicial * 0.91;
+            document.write(dineroInicial + "$ = " + dineroFinal+ "€" )
+        }
+        if(original == 2 && conversion == 3){
+            dineroFinal = dineroInicial * 0.76;
+            document.write(dineroInicial + "$ = " + dineroFinal+ "£")
+        }
+        if(original == 3 &&  conversion == 1){
+            dineroFinal = dineroInicial*1.199;
+            document.write(dineroInicial + "£ = " + dineroFinal+ "€")
+        }
+        if (original == 3 && conversion == 2) {
+            dineroFinal = dineroInicial  * 1.32
+            document.write(dineroInicial + "£ = " + dineroFinal+ "$")
+        }
+        break;        
+        
+    case "10":
+        
 
         break;
+        default:
+                
+        break;
+                
+                
+                
+           
 }
-
-
