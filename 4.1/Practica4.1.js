@@ -150,8 +150,13 @@ switch (elec) {
         break;        
         
     case "10":
-        
-
+        var mensaje = confirm("¿Descendente o ascendente? Descendente == aceptar")
+        var a = parseInt(prompt("Dame el primer número"))
+        var b = parseInt(prompt("Dame el segundo número"))
+        for (let index = 0; index < array.length; index++) {
+            
+            
+        }
         break;
         default:
                 
