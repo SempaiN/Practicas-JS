@@ -153,16 +153,42 @@ switch (elec) {
         var mensaje = confirm("¿Descendente o ascendente? Descendente == aceptar")
         var a = parseInt(prompt("Dame el primer número"))
         var b = parseInt(prompt("Dame el segundo número"))
-        for (let index = 0; index < array.length; index++) {
-            
-            
+        if (mensaje && a > b) {
+            for (let index = a; index >= b; index--) {
+                
+                document.write(a + ",");
+                
+            }
+        }
+        if (mensaje && a < b) {
+            for (let index =b ; index >= a; index--) {
+                document.write(index+",")
+            }
+        }
+        if (!mensaje && a > b) {
+            for (let index = b; index <=  a; index++) {
+                document.write(index + ",")
+                
+            }
+        }
+        if(!mensaje && b>a){
+            for (let index = a; index <=b; index++) {
+                document.write(index+",")   
+            }
         }
         break;
-        default:
-                
+    case 11:
+        for (let index = 50; index <= 100; index += 5) {
+            document.write(index + ",");
+        }
         break;
-                
+    case 12:
+         
+        
+        }
+
                 
                 
            
-}
+
+    
