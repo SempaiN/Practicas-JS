@@ -123,26 +123,32 @@ switch (elec) {
         original = parseInt(prompt("Dime la divisa original 1.- Euro 2.- Dolar 3.- Libra"))
         conversion = parseInt(prompt("Ahora dime a que lo quieres convertir 1.- Euro 2.-Dolar 3.- Libra"))
         dineroInicial = parseFloat(prompt("Dame el dinero que quieres converir"))
+        
         if (original == 1 && conversion == 2) {
             dineroFinal = dineroInicial * 1.11;
             document.write(dineroInicial + "€ = " + dineroFinal+ "$" )
         }
+
         if (original == 1 && conversion == 3) {
             dineroFinal = dineroInicial * 0.84
             document.write(dineroInicial + "€ = " + dineroFinal + "£")
         }
+
         if (original == 2 && conversion == 1) {
             dineroFinal = dineroInicial * 0.91;
             document.write(dineroInicial + "$ = " + dineroFinal+ "€" )
         }
+
         if(original == 2 && conversion == 3){
             dineroFinal = dineroInicial * 0.76;
             document.write(dineroInicial + "$ = " + dineroFinal+ "£")
         }
+        
         if(original == 3 &&  conversion == 1){
             dineroFinal = dineroInicial*1.199;
             document.write(dineroInicial + "£ = " + dineroFinal+ "€")
         }
+
         if (original == 3 && conversion == 2) {
             dineroFinal = dineroInicial  * 1.32
             document.write(dineroInicial + "£ = " + dineroFinal+ "$")
@@ -183,9 +189,25 @@ switch (elec) {
         }
         break;
     case 12:
-         
-        
+         // Pedir al usuario el valor de X
+        const x = parseInt(prompt("Ingresa un número X"));
+
+        // Pedir al usuario los valores de A y B
+        const a = parseInt(prompt("Ingresa un número A"));
+        const b = parseInt(prompt("Ingresa un número B"));
+
+        // Mostrar los múltiplos de X entre A y B
+        document.write("Los múltiplos de " + x + " entre " + a + " y " + b + " son: ");
+        for (let i = a; i <= b; i++) {
+            if (i % x === 0) {
+                document.write(i + ", ");
+            }
         }
+        break;
+}
+
+     
+        
 
                 
                 
