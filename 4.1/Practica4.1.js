@@ -135,7 +135,7 @@ switch (elec) {
         }
 
         if (original == 2 && conversion == 1) {
-            dineroFinal = dineroInicial * 0.91;
+            dineroFinal = dineroInicial * 0.90;
             document.write(dineroInicial + "$ = " + dineroFinal+ "€" )
         }
 
@@ -188,18 +188,14 @@ switch (elec) {
             document.write(index + ",");
         }
         break;
-    case 12:
-         // Pedir al usuario el valor de X
-        const x = parseInt(prompt("Ingresa un número X"));
-
-        // Pedir al usuario los valores de A y B
-        const a = parseInt(prompt("Ingresa un número A"));
-        const b = parseInt(prompt("Ingresa un número B"));
-
-        // Mostrar los múltiplos de X entre A y B
-        document.write("Los múltiplos de " + x + " entre " + a + " y " + b + " son: ");
-        for (let i = a; i <= b; i++) {
-            if (i % x === 0) {
+    case "12":
+        var multi = parseInt(prompt("Dame el primer número"));
+        var numero1 = parseInt(prompt("Ingresa un número 1"));
+        var numero2 = parseInt(prompt("Ingresa un número 2"));
+        
+        document.write("Los múltiplos de " + multi + " entre " + numero1 + " y " + numero2 + " son: ");
+        for (let i = numero1; i <= numero2; i++) {
+            if (i % multi === 0) {
                 document.write(i + ", ");
             }
         }
