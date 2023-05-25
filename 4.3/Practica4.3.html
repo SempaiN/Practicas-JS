@@ -1,0 +1,92 @@
+ <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./Practica4.3.css">
+        
+    </head>
+    <body>
+        <textarea  id="area" cols="30" rows="10"></textarea>
+        
+        <div class="padre">
+            <div class="ColorLetra" id="ColorLetra">
+                Color letra <input type="color" id="colorLetra" >
+                <button id="aceptar" for="ColorLetra"> Cambiar</button>
+            </div>
+            
+            <div class="ColorFondo" id="ColorFondo">
+                Color fondo <input type="color" id="colorFondo">
+                <button id="aceptar"> Cambiar</button>
+            </div>
+            
+            <div class="TamañoFuente">
+                Tamaño fuente <input type="number" id="fuente" min="1" max="100" value="16">
+                <button id="aceptar"  > Cambiar</button>
+            </div>
+
+            <div class="propiedades">
+              Negrita <input type="checkbox" id="negrita"> 
+              Italica <input type="checkbox" id="Italica"> 
+              Subrayado <input type="checkbox" id="Subrayado"> 
+            </div>
+        </div>
+        
+        <script>
+          function cambiarColorLetra(){
+            var color = document.getElementById("colorLetra").value;
+            document.getElementById("area").style.color = color
+            document.getElementById("ColorLetra").style.borderColor = color;
+          }
+         
+          function cambiarColorFondo(){
+            var color = document.getElementById("colorFondo").value;
+            document.getElementById("area").style.backgroundColor = color;
+            document.getElementById("ColorFondo").style.borderColor = color;
+
+          }
+
+          function cambiarFuente(){
+            var fuente =  document.getElementById("fuente").value;
+            document.getElementById("area").style.fontSize = fuente;
+          }
+
+          function aplicarNegrita(){
+            var negrita = document.getElementById("negrita");
+            if (negrita.checked) {
+              document.getElementById("area").style.fontWeight = 1000;
+            }
+            else{
+              document.getElementById("area").style.fontWeight = "normal";
+
+            }
+          }
+
+          function aplicarCursiva(){
+            var cursiva = document.getElementById("Italica");
+            if (cursiva.checked) {
+              document.getElementById("area").style.fontStyle = "italic";
+            }
+            else{
+              document.getElementById("area").style.fontStyle = "normal";
+            }
+          }
+
+          function aplicarSubrayado(){
+            var Subrayado = document.getElementById("Subrayado");
+            if (Subrayado.checked) {
+              document.getElementById("area").style.textDecoration = "underline";
+            }
+            else{
+              document.getElementById("area").style.textDecoration = "none";
+            }
+          }
+          
+          document.getElementById("fuente").addEventListener("change",cambiarFuente);
+          document.getElementById("Subrayado").addEventListener("change",aplicarSubrayado);
+          document.getElementById("Italica").addEventListener("change",aplicarCursiva);
+          document.getElementById("negrita").addEventListener("change",aplicarNegrita);
+          document.getElementById("colorLetra").addEventListener("change",cambiarColorLetra);
+          document.getElementById("colorFondo").addEventListener("change",cambiarColorFondo);
+        </script>
+    </body>
+</html> 

@@ -1,0 +1,14 @@
+div.padre{
+    background-color: aqua;
+    width: 400px;
+    border: 3px darkblue solid;
+    padding: 5px;
+}
+div{
+    padding: 10px
+}
+.ColorLetra,.ColorFondo,.TamañoFuente{
+    margin-top: 5px;
+    border: solid 1px black;
+    
+}

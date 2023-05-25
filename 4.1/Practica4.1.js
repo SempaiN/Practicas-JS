@@ -157,12 +157,12 @@ switch (elec) {
         
     case "10":
         var mensaje = confirm("¿Descendente o ascendente? Descendente == aceptar")
-        var a = parseInt(prompt("Dame el primer número"))
+        var a = PPPparseInt(prompt("Dame el primer número"))
         var b = parseInt(prompt("Dame el segundo número"))
         if (mensaje && a > b) {
             for (let index = a; index >= b; index--) {
                 
-                document.write(a + ",");
+                document.write(index + ",");
                 
             }
         }
@@ -177,13 +177,13 @@ switch (elec) {
                 
             }
         }
-        if(!mensaje && b>a){
-            for (let index = a; index <=b; index++) {
+        if(!mensaje && a>b){
+            for (let index = b; index <=a; index++) {
                 document.write(index+",")   
             }
         }
         break;
-    case 11:
+    case "11":
         for (let index = 50; index <= 100; index += 5) {
             document.write(index + ",");
         }
@@ -199,6 +199,7 @@ switch (elec) {
                 document.write(i + ", ");
             }
         }
+        window.open("https://developer.mozilla.org/es/docs/Web/API/Window/open")
         break;
 }
 
