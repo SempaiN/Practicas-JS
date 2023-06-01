@@ -3,7 +3,108 @@
         <link rel="stylesheet" href="./4.5.css">
         <script src="./4.5.js"></script>
     </head>
-    <body>
-        
+    <body id="body">
+        <div class="titulo">My anime list</div>
+       <div class="titulos">
+        <h3 id="titPrincip"></h3>
+        <p>También conocido como:</p>
+            <ul>
+                <li id="t1"></li>
+                <li id="t2"></li>
+                <li id="t3"></li>
+            </ul>
+       </div>
+       <div class="info">
+            <p >Tipo de manga: <span id="tipo"></span></p>
+            <p >Fuente: <span id="fuente"></span></p>
+            <p >Episodios: <span id="episodios"></span></p>
+            <p >Comienzo emisión: <span id="comienzo"></span></p>
+            <p >Fin emisión: <span id="fin" ></span></p>
+            <p >Duración: <span id="dura"> </span></p>
+            <p >Clasificación: <span id="clasi"></span></p>
+            <p >Nota: <span id="nota"></span></p>
+            <p>Géneros: <span  id="genero"></span></p>
+       </div>
+       <div class="sinopsis">
+            <p class="inopsis"> <span id="titPrincip">Sinopsis:</span> </p>
+            <p id="sino"></p>
+       </div>
+       <div class="foto">
+            <img src="" alt="" id="foto">
+        </div>
+        <div class="video">
+            <iframe src="" frameborder="0" id="trailer"></iframe>
+        </div>
     </body>
+    <script>
+        async function buscarApi(texto){
+            let respuesta_fetch = await fetch(texto);
+            let respuestaBuena = await respuesta_fetch.text();
+            return respuestaBuena;
+        }
+       
+
+        let letra =  buscarApi("https://api.jikan.moe/v4/random/anime");
+        letra.then((texto) => {
+            var obj = JSON.parse(texto);
+            var objBueno = obj.data;
+            
+            document.getElementById("titPrincip").innerHTML = objBueno.title;
+            document.getElementById("t1").innerHTML = objBueno.title;
+            if (objBueno.title_english == null) {
+                document.getElementById("t2").innerHTML = objBueno.title;       
+            }
+            else{
+                document.getElementById("t2").innerHTML = objBueno.title_english
+            }
+            document.getElementById("t3").innerHTML = objBueno.title_japanese;
+            document.getElementById("tipo").innerHTML = objBueno.type;
+            document.getElementById("fuente").innerHTML = objBueno.source;
+            document.getElementById("episodios").innerHTML = objBueno.episodes;
+            document.getElementById("comienzo").innerHTML = (objBueno.aired.prop.from.day + "-" + objBueno.aired.prop.from.month + "-" + objBueno.aired.prop.from.year)
+            if (objBueno.aired.to == null) {
+                document.getElementById("fin").innerHTML = "En emisión"
+            }
+            else{
+                document.getElementById("fin").innerHTML = (objBueno.aired.prop.to.day + "-" + objBueno.aired.prop.to.month + "-" + objBueno.aired.prop.to.year)
+            }
+            document.getElementById("dura").innerHTML = objBueno.duration;
+            document.getElementById("clasi").innerHTML = objBueno.rating;
+            if (objBueno.score == null) {
+                document.getElementById("nota").innerHTML = "No score"
+            }
+            else{
+                document.getElementById("nota").innerHTML = objBueno.score;
+            }
+            let generos = objBueno.genres;
+            let generosString = "";
+            for (let index = 0; index < generos.length; index++) {
+                if (generos[index].name == "Hentai" )  {
+                    location.reload();
+                }
+                else{
+                    generosString += generos[index].name + ", ";       
+                }
+            }
+            // Eliminamos la coma y el espacio extra al final
+            generosString = generosString.slice(0, -2);
+
+            document.getElementById("genero").innerHTML = generosString;
+            if (objBueno.synopsis == null) {
+                document.getElementById("sino").innerHTML = "Sinopsis no disponible"
+            }
+            else{
+                document.getElementById("sino").innerHTML = objBueno.synopsis;
+            }
+            document.getElementById("foto").src=objBueno.images.jpg.large_image_url;
+            
+            if (objBueno.trailer.embed_url == null) {
+                document.getElementById("trailer").src="https://www.youtube.com/embed/AQx_KMoCgJU"
+            }
+            else{
+                document.getElementById("trailer").src=objBueno.trailer.embed_url
+            }
+        }
+        )
+    </script>
 </html>
