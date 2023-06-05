@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="4.3.css">
+    <title>Document</title>
+</head>
+<body>
+    <textarea id="Area" cols="30" rows="10"></textarea>
+    <div class="tot">
+        <div id="cletra">
+            Color letra <input type="color" name="" id="Cletra">
+        </div>
+        <div id="cfondo">
+            Color fondo<input type="color" name="" id="Cfondo">
+
+        </div>
+        Tamaño fuente <input type="text" id="tamanyo">
+        <div class="check">
+            Negrita<input type="checkbox"  id="negrita">
+            Cursiva<input type="checkbox"  id="cursi">
+            Subrayado <input type="checkbox"  id="dub">
+        </div>
+        
+    </div>
+  <script>
+       function cambiarColorLetra(){
+        var color = document.getElementById("Cletra").value;
+        document.getElementById("Area").style.color = color;
+        document.getElementById("cletra").style.border=color+" 2px solid"
+       }
+
+       function cambiarColorFondo(){
+        var color = document.getElementById("Cfondo").value;
+        document.getElementById("Area").style.backgroundColor = color
+        document.getElementById("cfondo").style.border=color+" 2px solid"
+
+       }
+
+       function tamanyoLetra(){
+        var tamanyo = document.getElementById("tamanyo").value+"px";
+        document.getElementById("Area").style.fontSize=tamanyo;
+       }
+       function negrita(){
+        var negrita = document.getElementById("negrita");
+        if (negrita.checked) {
+            document.getElementById("Area").style.fontWeight="bold"
+        }
+        else{
+            document.getElementById("Area").style.fontWeight="normal"
+        }
+       }
+       function cursiva(){
+        var cursi = document.getElementById("cursi");
+        if (cursi.checked) {
+            document.getElementById("Area").style.fontStyle="italic"
+        }
+        else{
+            document.getElementById("Area").style.fontStyle="normal"
+        }
+       } 
+       function subrayado(){
+        var sub = document.getElementById("dub");
+        if (sub.checked) {
+            document.getElementById("Area").style.textDecoration="underline"
+        }
+        else{
+            document.getElementById("Area").style.textDecoration="none"
+        }
+       }
+
+       document.getElementById("Cletra").addEventListener("change",cambiarColorLetra)
+       document.getElementById("Cfondo").addEventListener("change",cambiarColorFondo)
+       document.getElementById("tamanyo").addEventListener("change",tamanyoLetra)
+       document.getElementById("negrita").addEventListener("change",negrita)
+       document.getElementById("cursi").addEventListener("change",cursiva)
+       document.getElementById("dub").addEventListener("change",subrayado)
+   
+  </script>
+</body>
+</html>
